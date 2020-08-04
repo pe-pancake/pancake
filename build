@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Prepare
+lunch "aosp_$ppe_device_name-userdebug"
+mka installclean
+
+# Build
+mka bacon -j"$ppe_threads"
+mv out/target/product/$ppe_device_name/PixelExperience*.zip "$ppe_builds_path"
+mv out/target/product/$ppe_device_name/PixelExperience*.txt "$ppe_builds_path"

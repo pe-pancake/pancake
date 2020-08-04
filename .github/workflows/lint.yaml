@@ -1,0 +1,18 @@
+on: push
+
+name: Lint
+
+jobs:
+  shellcheck:
+    name: Shellcheck
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Checkout
+      uses: actions/checkout@master
+
+    - name: Run ShellCheck
+      uses: ludeeus/action-shellcheck@master
+      with:
+        ignore: README.md local_manifest.xml
+        check_together: 'yes'

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <remote name="pancake" fetch="https://github.com/pe-pancake" />
+  <remote name="pe" fetch="https://gitlab.com/PixelExperience/" />
+  <remote name="los" fetch="https://github.com/LineageOS/" />
+  <remote name="pig" fetch="https://gitlab.com/pig.priv/" />
+
+  <!-- Xiaomi HAL definitions -->
+  <project path="hardware/xiaomi" name="android_hardware_xiaomi" remote="pancake" revision="pe-10.0" />
+
+  <!-- Pancake kernel -->
+  <project path="kernel/xiaomi/sm6150" name="android_kernel_xiaomi_sm6150" remote="pancake" revision="ten" />
+
+  <!-- PixelLiveWallpaper -->
+  <project path="packages/apps/PixelLiveWallpaper" name="packages_apps_PixelLiveWallpaper" remote="pe" revision="ten" />
+
+  <!-- Xiaomi vendor -->
+  <project path="vendor/xiaomi" name="proprietary_vendor_xiaomi" remote="pig" revision="lineage-17.1" />
+
+  <!-- Track caf-sm8150 from los -->
+  <remove-project name="hardware_qcom-caf_sm8150_audio" />
+  <project path="hardware/qcom-caf/sm8150/audio" name="android_hardware_qcom_audio" remote="los" revision="lineage-17.1-caf-sm8150" />
+
+  <remove-project name="hardware_qcom-caf_sm8150_display" />
+  <project path="hardware/qcom-caf/sm8150/display" name="android_hardware_qcom_display" remote="los" revision="lineage-17.1-caf-sm8150" />
+
+  <remove-project name="hardware_qcom-caf_sm8150_media" />
+  <project path="hardware/qcom-caf/sm8150/media" name="android_hardware_qcom_media" remote="los" revision="lineage-17.1-caf-sm8150" />
+
+  <!-- Track nxp from los -->
+  <project path="vendor/nxp/opensource/interfaces/nfc" name="android_vendor_nxp_interfaces_opensource_nfc" remote="los" revision="lineage-17.1" />
+  <project path="vendor/nxp/opensource/commonsys/external/libnfc-nci" name="android_vendor_nxp_opensource_external_libnfc-nci" remote="los" revision="lineage-17.1" />
+  <project path="vendor/nxp/opensource/commonsys/frameworks" name="android_vendor_nxp_opensource_frameworks" remote="los" revision="lineage-17.1" />
+  <project path="vendor/nxp/opensource/commonsys/packages/apps/Nfc" name="android_vendor_nxp_opensource_packages_apps_Nfc" remote="los" revision="lineage-17.1" />
+  <project path="vendor/nxp/opensource/sn100x/halimpl" name="android_vendor_nxp_opensource_halimpl" remote="los" revision="lineage-17.1-sn100x" />
+  <project path="vendor/nxp/opensource/sn100x/hidlimpl" name="android_vendor_nxp_opensource_hidlimpl" remote="los" revision="lineage-17.1-sn100x" />
+
+  <!-- PE patches for davinci -->
+  <project path="patches" name="patches" remote="pancake" revision="ten" />
+
+  <!-- Device tree -->
+  <project path="device/xiaomi/davinci" name="android_device_xiaomi_davinci" remote="pancake" revision="ten" />
+  <project path="device/xiaomi/sm6150-common" name="android_device_xiaomi_sm6150-common" remote="pancake" revision="ten" />
+
+   <!-- Etc -->
+  <project path="vendor/sqlite3" name="vendor_sqlite3" remote="pancake" revision="master" />
+  <project path="packages/apps/GoogleCamera" name="packages_apps_GoogleCamera" remote="pancake" revision="7.3-urnyx-v2" />
+</manifest>
