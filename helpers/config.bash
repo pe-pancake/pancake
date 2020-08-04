@@ -1,5 +1,5 @@
 export ppe_project_path="$(pwd)"
-export ppe_scripts_path="$ppe_project_path/scripts"
+export ppe_scripts_path="$ppe_project_path/pancake"
 
 threads=0
 
