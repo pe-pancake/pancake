@@ -10,14 +10,14 @@ function apply_patches() {
   patches_dir="$1"
 
   for project in $(
-    cd "$patches_dir/patches" || return
+    cd "$patches_dir" || return
     echo *
   ); do
     project_path="$(tr _ / <<<"$project")"
     reset_repo "$project_path"
 
 
-    for patch in $patches_dir/patches/$project/*.patch; do
+    for patch in $patches_dir/$project/*.patch; do
       patch=$(readlink -f "$patch")
       pushd "$project_path" || continue
       if patch -f -p1 --dry-run -R <"$patch" >/dev/null; then
