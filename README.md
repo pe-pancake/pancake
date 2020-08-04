@@ -1,6 +1,6 @@
 # PixelExperience scripts for Pancake (davinci)
 
-![Lint](https://github.com/pe-pancake/scripts/workflows/Lint/badge.svg)
+![Lint](https://github.com/pe-pancake/pancake/workflows/Lint/badge.svg)
 
 ## Initialize
 ```sh
