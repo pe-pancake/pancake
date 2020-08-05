@@ -1,4 +1,5 @@
 #!/bin/bash
+source build/envsetup.sh
 
 # Prepare
 lunch "aosp_$ppe_device_name-userdebug"
