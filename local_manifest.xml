@@ -3,7 +3,6 @@
   <remote name="pancake" fetch="ssh://git@github.com/pe-pancake" />
   <remote name="pe" fetch="https://gitlab.com/PixelExperience/" />
   <remote name="los" fetch="https://github.com/LineageOS/" />
-  <remote name="pig" fetch="https://gitlab.com/pig.priv/" />
 
   <!-- Xiaomi HAL definitions -->
   <project path="hardware/xiaomi" name="android_hardware_xiaomi" remote="pancake" revision="pe-10.0" />
@@ -15,7 +14,7 @@
   <project path="packages/apps/PixelLiveWallpaper" name="packages_apps_PixelLiveWallpaper" remote="pe" revision="ten" />
 
   <!-- Xiaomi vendor -->
-  <project path="vendor/xiaomi" name="proprietary_vendor_xiaomi" remote="pig" revision="lineage-17.1" />
+  <project path="vendor/xiaomi" name="proprietary_vendor_xiaomi" remote="pancake" revision="master" />
 
   <!-- Track caf-sm8150 from los -->
   <remove-project name="hardware_qcom-caf_sm8150_audio" />
