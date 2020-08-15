@@ -34,6 +34,8 @@
   <project path="vendor/nxp/opensource/sn100x/halimpl" name="android_vendor_nxp_opensource_halimpl" remote="los" revision="lineage-17.1-sn100x" />
   <project path="vendor/nxp/opensource/sn100x/hidlimpl" name="android_vendor_nxp_opensource_hidlimpl" remote="los" revision="lineage-17.1-sn100x" />
 
+  <project path="hardware/lineage/livedisplay" name="android_hardware_lineage_livedisplay" remote="los" revision="lineage-17.1" />
+
   <!-- Device tree -->
   <project path="device/xiaomi/davinci" name="android_device_xiaomi_davinci" remote="pancake" revision="ten" />
   <project path="device/xiaomi/sm6150-common" name="android_device_xiaomi_sm6150-common" remote="pancake" revision="ten" />
