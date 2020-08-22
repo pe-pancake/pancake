@@ -1,15 +1,13 @@
 #!/bin/bash
-source pancake/helpers/config.bash
-source pancake/helpers/apply-patches.bash
 set -e
 
 pe_manifest="https://github.com/PixelExperience/manifest"
 pe_branch="ten"
 
 mkdir -p .repo/local_manifests
-ln "$ppe_scripts_path/local_manifest.xml" .repo/local_manifests/manifest.xml
+ln "$ppe_scripts_path/local_manifest.xml" .repo/local_manifests/pixel.xml
 
 repo init -u "$pe_manifest" -b "$pe_branch" --depth=1
-repo sync -c -j"$threads" --force-sync --no-clone-bundle --no-tags
+repo sync -c -j30 --force-sync --no-clone-bundle --no-tags
 
-apply_patches "$ppe_scripts_path/patches"
+# apply_patches "$ppe_scripts_path/patches"

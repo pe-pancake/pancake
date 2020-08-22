@@ -20,7 +20,7 @@ export ppe_threads="$threads"
 export ppe_device_name="davinci"
 export ppe_arch="arm64"
 export ppe_defconfig="pancake_defconfig"
-export ppe_kernel_path="$ppe_project_path/kernel/xiaomi/sm6150"
+export ppe_kernel_path="$ppe_project_path/kernel/xiaomi/$ppe_device_name"
 export ppe_builds_path="$HOME/builds"
 
 export LC_ALL=C

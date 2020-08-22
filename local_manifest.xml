@@ -1,47 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
   <remote name="pancake" fetch="ssh://git@github.com/pe-pancake" />
-  <remote name="pe" fetch="https://gitlab.com/PixelExperience/" />
+  <remote name="pe" fetch="https://github.com/PixelExperience-Devices/" />
   <remote name="los" fetch="https://github.com/LineageOS/" />
 
-  <!-- Xiaomi HAL definitions -->
-  <project path="hardware/xiaomi" name="android_hardware_xiaomi" remote="pancake" revision="pe-10.0" />
+  <!-- PePe stuff -->
+  <project path="device/xiaomi/davinci" remote="pancake" name="android_device_xiaomi_davinci" revision="ten" />
+  <project path="vendor/xiaomi/davinci" remote="pancake" name="vendor_xiaomi_davinci" revision="ten" />
+  <project path="kernel/xiaomi/davinci" remote="pancake" name="kernel_xiaomi_davinci" revision="ten" />
 
-  <!-- Pancake kernel -->
-  <project path="kernel/xiaomi/sm6150" name="android_kernel_xiaomi_sm6150" remote="pancake" revision="ten" />
+  <!-- PixelExperience stuff -->
+  <project path="hardware/xiaomi" remote="pe" name="hardware_xiaomi" revision="ten" />
+  <project path="packages/apps/PixelLiveWallpaper" remote="pixel-gitlab" name="packages_apps_PixelLiveWallpaper" revision="ten" />
 
-  <!-- PixelLiveWallpaper -->
-  <project path="packages/apps/PixelLiveWallpaper" name="packages_apps_PixelLiveWallpaper" remote="pe" revision="ten" />
-
-  <!-- Xiaomi vendor -->
-  <project path="vendor/xiaomi" name="proprietary_vendor_xiaomi" remote="pancake" revision="master" />
-
-  <!-- Track caf-sm8150 from los -->
-  <remove-project name="hardware_qcom-caf_sm8150_audio" />
-  <project path="hardware/qcom-caf/sm8150/audio" name="android_hardware_qcom_audio" remote="los" revision="lineage-17.1-caf-sm8150" />
-
-  <remove-project name="hardware_qcom-caf_sm8150_display" />
-  <project path="hardware/qcom-caf/sm8150/display" name="android_hardware_qcom_display" remote="los" revision="lineage-17.1-caf-sm8150" />
-
-  <remove-project name="hardware_qcom-caf_sm8150_media" />
-  <project path="hardware/qcom-caf/sm8150/media" name="android_hardware_qcom_media" remote="los" revision="lineage-17.1-caf-sm8150" />
-
-  <!-- Track nxp from los -->
-  <project path="vendor/nxp/opensource/interfaces/nfc" name="android_vendor_nxp_interfaces_opensource_nfc" remote="los" revision="lineage-17.1" />
-  <project path="vendor/nxp/opensource/commonsys/external/libnfc-nci" name="android_vendor_nxp_opensource_external_libnfc-nci" remote="los" revision="lineage-17.1" />
-  <project path="vendor/nxp/opensource/commonsys/frameworks" name="android_vendor_nxp_opensource_frameworks" remote="los" revision="lineage-17.1" />
-  <project path="vendor/nxp/opensource/commonsys/packages/apps/Nfc" name="android_vendor_nxp_opensource_packages_apps_Nfc" remote="los" revision="lineage-17.1" />
-  <project path="vendor/nxp/opensource/sn100x/halimpl" name="android_vendor_nxp_opensource_halimpl" remote="los" revision="lineage-17.1-sn100x" />
-  <project path="vendor/nxp/opensource/sn100x/hidlimpl" name="android_vendor_nxp_opensource_hidlimpl" remote="los" revision="lineage-17.1-sn100x" />
-
-  <project path="hardware/lineage/livedisplay" name="android_hardware_lineage_livedisplay" remote="los" revision="lineage-17.1" />
-
-  <!-- Device tree -->
-  <project path="device/xiaomi/davinci" name="android_device_xiaomi_davinci" remote="pancake" revision="ten" />
-  <project path="device/xiaomi/sm6150-common" name="android_device_xiaomi_sm6150-common" remote="pancake" revision="ten" />
-
-   <!-- Etc -->
-  <project path="vendor/sqlite3" name="vendor_sqlite3" remote="pancake" revision="master" />
-  <project path="packages/apps/GoogleCamera" name="packages_apps_GoogleCamera" remote="pancake" revision="7.3-urnyx-v2" />
-  <project path="external/motorola/faceunlock/" name="external_motorola_faceunlock" remote="pancake" revision="ten" />
+  <!-- LineageOS hardware stuff stuff -->
+  <project path="vendor/nxp/opensource/interfaces/nfc" remote="los" name="android_vendor_nxp_interfaces_opensource_nfc" revision="lineage-17.1" />
+  <project path="vendor/nxp/opensource/commonsys/external/libnfc-nci" remote="los" name="android_vendor_nxp_opensource_external_libnfc-nci" revision="lineage-17.1" />
+  <project path="vendor/nxp/opensource/commonsys/frameworks" remote="logs" name="android_vendor_nxp_opensource_frameworks" revision="lineage-17.1" />
+  <project path="vendor/nxp/opensource/commonsys/packages/apps/Nfc" remote="los" name="android_vendor_nxp_opensource_packages_apps_Nfc" revision="lineage-17.1" />
+  <project path="vendor/nxp/opensource/sn100x/halimpl" remote="los" name="android_vendor_nxp_opensource_halimpl" revision="lineage-17.1-sn100x" />
+  <project path="vendor/nxp/opensource/sn100x/hidlimpl" remote="los" name="android_vendor_nxp_opensource_hidlimpl" revision="lineage-17.1-sn100x" />
 </manifest>
