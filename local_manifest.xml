@@ -6,8 +6,10 @@
 
   <!-- PePe stuff -->
   <project path="device/xiaomi/davinci" remote="pancake" name="android_device_xiaomi_davinci" revision="ten" />
-  <project path="vendor/xiaomi/davinci" remote="pancake" name="vendor_xiaomi_davinci" revision="ten" />
   <project path="kernel/xiaomi/davinci" remote="pancake" name="kernel_xiaomi_davinci" revision="ten" />
+
+  <!-- PixelExperience Official davinci vendor -->
+  <project path="vendor/xiaomi/davinci" remote="pixel-devices-blobs" name="vendor_xiaomi_davinci" revision="ten" />
 
   <!-- etc -->
   <project path="vendor/sqlite3" name="vendor_sqlite3" remote="pancake" revision="master" />
