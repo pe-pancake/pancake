@@ -26,6 +26,20 @@ kmake_flags=(
 	O="out"
 )
 
+function build_rom () {
+  cd "$ppe_project_path"
+
+  # Prepare
+  source build/envsetup.sh
+  lunch "aosp_$ppe_device_name-userdebug"
+  mka installclean
+
+  # Build
+  mka bacon -j"$ppe_threads"
+  mv out/target/product/$ppe_device_name/PixelExperience*.zip "$ppe_builds_path"
+  mv out/target/product/$ppe_device_name/PixelExperience*.txt "$ppe_builds_path"
+}
+
 # Main wrapper for all `make` functions
 kmake () {
   make "${kmake_flags[@]}" "$@"
@@ -229,40 +243,17 @@ case "$1" in
     kmake savedefconfig
     cp -f out/defconfig "arch/$ppe_arch/configs/$ppe_defconfig"
     ;;
-  build|b)
+  build-kernel|bk)
     shift
     build "$@"
     ;;
-  configure|c)
-    configure
-    ;;
-  clear|cc)
-    rm -rf out/
-    git checkout out/.gitignore
-    ;;
-  pack|p)
-    pack
-    ;;
-  publish|pb)
-    publish
-    ;;
-  build-information|bi)
-    print_build_info
-    ;;
-  telegram|tg)
+  build|b)
     shift
-    telegram_post "$@"
+    build_rom "$@"
     ;;
   master|m)
     configure
     build
     pack
   ;;
-  upstream|u)
-    shift
-    upstream "$@"
-    ;;
-  add_sub|a)
-    shift
-    add_sub "$@"
 esac

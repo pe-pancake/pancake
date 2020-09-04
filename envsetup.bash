@@ -1,3 +1,3 @@
 source pancake/helpers/config.bash
 
-alias pancake-kernel="$ppe_scripts_path/kernel"
+alias pk="$ppe_scripts_path/script"
