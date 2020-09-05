@@ -42,6 +42,20 @@ function build_rom () {
   echo -e "\nResult file: $out_rom/$zip_name"
 }
 
+# Build kernel
+build () {
+  # Prepare
+  source build/envsetup.sh
+  lunch "aosp_$ppe_device_name-userdebug"
+
+  # Build
+  mka bootimage -j$ppe_threads
+  timestamp="$(date +%s)"
+  mv "$out_rom/boot.img" "$ppe_builds_path/boot/boot-$timestamp.img"
+
+  echo "$timestamp"
+}
+
 # Main wrapper for all `make` functions
 kmake () {
   make "${kmake_flags[@]}" "$@"
@@ -123,21 +137,6 @@ print_info () {
   echo "CLang version: $(get_clang_version)"
   echo "Binutils version: $(get_binutils_version)"
   echo "Toolchain path: $toolchain_path"
-}
-
-# Build kernel
-build () {
-  echo "Building..."
-  local_version=$(get_local_version)
-  print_info
-  sed -i "s/\"-Pancake\"/\"-Pancake$local_version\"/g" "$ppe_kernel_path/out/.config"
-  kmake_flags+=(
-    CC="clang"
-    CLANG_TRIPLE="aarch64-linux-gnu-"
-    CROSS_COMPILE="$gcc64_prefix"
-    CROSS_COMPILE_ARM32="$gcc32_prefix"
-  )
-  kmake "$@"
 }
 
 publish () {
@@ -258,7 +257,7 @@ case "$1" in
     cp -f out/defconfig "arch/$ppe_arch/configs/$ppe_defconfig"
     ;;
   build-kernel|bk)
-    cd $ppe_kernel_path
+    cd $ppe_project_path
     shift
     build "$@"
     ;;
