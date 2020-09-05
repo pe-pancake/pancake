@@ -1,5 +1,6 @@
 #!/bin/bash
 set -e
+source "$ppe_scripts_path/helpers/apply-patches.bash"
 
 llvm_revision="r353983d"
 
@@ -10,6 +11,7 @@ gcc32_prefix="$gcc_path/arm/arm-linux-androideabi-4.9/bin/arm-linux-androideabi-
 gcc64_prefix="$gcc_path/aarch64/aarch64-linux-android-4.9/bin/aarch64-linux-android-"
 llvm_bin="$prebuilts_path/clang/host/linux-x86/clang-$llvm_revision/bin"
 out_path="$ppe_kernel_path/out"
+out_rom="out/target/product/$ppe_device_name"
 zip_basename="pancake"
 
 cd $ppe_kernel_path || return
@@ -27,8 +29,6 @@ kmake_flags=(
 )
 
 function build_rom () {
-  cd "$ppe_project_path"
-
   # Prepare
   source build/envsetup.sh
   lunch "aosp_$ppe_device_name-userdebug"
@@ -36,8 +36,10 @@ function build_rom () {
 
   # Build
   mka bacon -j"$ppe_threads"
-  mv out/target/product/$ppe_device_name/PixelExperience*.zip "$ppe_builds_path"
-  mv out/target/product/$ppe_device_name/PixelExperience*.txt "$ppe_builds_path"
+  zip_name=$(basename "$(echo $out_rom/PixelExperience*.zip | sort | tail -n1)")
+  mv $out_rom/$zip_name "$ppe_builds_path"
+
+  echo -e "\nResult file: $out_rom/$zip_name"
 }
 
 # Main wrapper for all `make` functions
@@ -229,7 +231,18 @@ add_sub () {
     sub_action add "$@"
 }
 
-cd $ppe_kernel_path
+sync () {
+  repo sync -c \
+    -j$ppe_threads \
+    --force-sync \
+    --no-clone-bundle \
+    --no-tags
+  apply_patches "$ppe_scripts_path/patches"
+}
+
+print_success () {
+  echo -e "\n\e[92m$1\e[90m | $(date +%R)"
+}
 
 export PATH="$llvm_bin:$PATH"
 export LD_LIBRARY_PATH="$llvm_bin/../lib:$llvm_bin/../lib64:$LD_LIBRARY_PATH"
@@ -239,17 +252,26 @@ case "$1" in
     print_info
     ;;
   regenerate|r)
+    cd $ppe_kernel_path
     configure
     kmake savedefconfig
     cp -f out/defconfig "arch/$ppe_arch/configs/$ppe_defconfig"
     ;;
   build-kernel|bk)
+    cd $ppe_kernel_path
     shift
     build "$@"
     ;;
   build|b)
+    cd $ppe_project_path
     shift
     build_rom "$@"
+    print_success "ROM successfully builded"
+    ;;
+  sync|s)
+    cd $ppe_project_path
+    sync
+    print_success "Sources successfully synchronized"
     ;;
   master|m)
     configure
