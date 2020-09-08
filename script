@@ -232,7 +232,7 @@ add_sub () {
 
 sync () {
   repo sync -c \
-    -j$ppe_threads \
+    -j"$ppe_threads" \
     --force-sync \
     --no-clone-bundle \
     --no-tags
