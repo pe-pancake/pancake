@@ -1,0 +1,26 @@
+From d9c9b0fb1b43834b6feed9362e02bc96b701722f Mon Sep 17 00:00:00 2001
+From: mishamyrt <misha@myrt.co>
+Date: Wed, 9 Sep 2020 01:28:32 +0300
+Subject: [PATCH] Replace KERNEL_TOOLCHAIN_PREFIX_arm to match proton clang
+
+Change-Id: I766c1683f293156894702e0c2bc1b5a904fe0665
+---
+ config/BoardConfigKernel.mk | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/config/BoardConfigKernel.mk b/config/BoardConfigKernel.mk
+index b3813087..af9a76c7 100644
+--- a/config/BoardConfigKernel.mk
++++ b/config/BoardConfigKernel.mk
+@@ -71,7 +71,7 @@ else
+     KERNEL_TOOLCHAIN_PREFIX_arm64 := aarch64-linux-android-
+     # arm toolchain
+     KERNEL_TOOLCHAIN_arm := $(GCC_PREBUILTS)/arm/arm-linux-androideabi-4.9/bin
+-    KERNEL_TOOLCHAIN_PREFIX_arm := arm-linux-androidkernel-
++    KERNEL_TOOLCHAIN_PREFIX_arm := arm-linux-gnueabi-
+ endif
+ TARGET_KERNEL_CROSS_COMPILE_PREFIX := $(strip $(TARGET_KERNEL_CROSS_COMPILE_PREFIX))
+ ifneq ($(TARGET_KERNEL_CROSS_COMPILE_PREFIX),)
+--
+2.25.1
+
