@@ -12,6 +12,7 @@ apply_patches() {
 
   for project in $(
     cd "$patches_dir" || return
+    # shellcheck disable=SC2035
     echo *
   ); do
     project_path="$(tr _ / <<<"$project")"
