@@ -1,6 +1,6 @@
 kmake_flags=(
-	-j"${threads}"
-	ARCH="$arch"
+	-j"${ppe_threads}"
+	ARCH="$ppe_arch"
 	O="out"
 )
 

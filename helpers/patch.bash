@@ -1,4 +1,4 @@
-function reset_repo() {
+reset_repo() {
   repo sync -l --force-sync "$1" || continue
   pushd "$1" || continue
   git clean -fdx
@@ -6,7 +6,7 @@ function reset_repo() {
   popd || continue
 }
 
-function apply_patches() {
+apply_patches() {
   patches_dir="$1"
 
   for project in $(
@@ -15,7 +15,6 @@ function apply_patches() {
   ); do
     project_path="$(tr _ / <<<"$project")"
     reset_repo "$project_path"
-
 
     for patch in $patches_dir/$project/*.patch; do
       patch=$(readlink -f "$patch")
