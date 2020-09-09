@@ -1,4 +1,0 @@
-#!/bin/bash
-source "$ppe_scripts_path/helpers/apply-patches.bash"
-
-apply_patches "$ppe_scripts_path/patches"

@@ -1,9 +1,10 @@
+# shellcheck disable=SC2231
 reset_repo() {
-  repo sync -l --force-sync "$1" || continue
-  pushd "$1" || continue
+  repo sync -l --force-sync "$1" || return
+  pushd "$1" || return
   git clean -fdx
   git reset --hard
-  popd || continue
+  popd || return
 }
 
 apply_patches() {

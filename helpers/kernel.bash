@@ -8,8 +8,3 @@ kmake_flags=(
 kmake () {
   make "${kmake_flags[@]}" "$@"
 }
-
-# Generate build config
-configure () {
-  kmake "$defconfig"
-}

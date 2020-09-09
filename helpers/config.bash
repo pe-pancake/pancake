@@ -1,6 +1,9 @@
-export ppe_project_path="$(pwd)"
+ppe_project_path="$(pwd)"
+ppe_threads="$(nproc --all)"
+
+export ppe_project_path
+export ppe_threads
 export ppe_scripts_path="$ppe_project_path/pancake"
-export ppe_threads="$(nproc --all)"
 export ppe_device_name="davinci"
 export ppe_arch="arm64"
 export ppe_defconfig="pancake_defconfig"

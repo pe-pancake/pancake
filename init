@@ -1,5 +1,10 @@
 #!/bin/bash
 set -e
+export LC_ALL=C
+# shellcheck source=helpers/config.bash
+source "$ppe_scripts_path/helpers/config.bash"
+# shellcheck source=helpers/patch.bash
+source "$ppe_scripts_path/helpers/patch.bash"
 
 pe_manifest="https://github.com/PixelExperience/manifest"
 pe_branch="ten"
@@ -10,4 +15,4 @@ ln "$ppe_scripts_path/local_manifest.xml" .repo/local_manifests/pixel.xml
 repo init -u "$pe_manifest" -b "$pe_branch" --depth=1
 repo sync -c -j30 --force-sync --no-clone-bundle --no-tags
 
-# apply_patches "$ppe_scripts_path/patches"
+apply_patches "$ppe_scripts_path/patches"

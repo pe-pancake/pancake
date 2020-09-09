@@ -1,17 +1,20 @@
 #!/bin/bash
 set -e
 export LC_ALL=C
+# shellcheck source=helpers/config.bash
+source "$ppe_scripts_path/helpers/config.bash"
+# shellcheck source=helpers/patch.bash
 source "$ppe_scripts_path/helpers/patch.bash"
 
-cd $ppe_project_path || return
+cd "$ppe_project_path" || return
 
 get_latest_out_zip () {
-  echo "$(echo $ppe_out_path/PixelExperience*.zip | sort | tail -n1)"
+  echo $ppe_out_path/PixelExperience*.zip | sort | tail -n1
 }
 
 build_rom () {
   mka bacon -j"$ppe_threads"
-  zip_name="$(basename $(get_latest_out_zip))"
+  zip_name="$(basename "$(get_latest_out_zip)")"
   mv "$ppe_out_path/$zip_name" "$ppe_builds_path"
   echo -e "\nResult file: $ppe_builds_path/$zip_name"
 }
@@ -42,14 +45,15 @@ print_success () {
 }
 
 regenerate () {
-  cd $ppe_kernel_path
+  cd "$ppe_kernel_path"
   configure
   kmake savedefconfig
   cp -f out/defconfig "arch/$ppe_arch/configs/$ppe_defconfig"
 }
 
 init_build () {
-  mkdir -p $ppe_builds_path
+  mkdir -p "$ppe_builds_path"
+  # shellcheck disable=SC1091
   source build/envsetup.sh
   lunch "aosp_$ppe_device_name-userdebug"
   mka installclean -j"$ppe_threads"
