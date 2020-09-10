@@ -12,7 +12,6 @@
   <!-- etc -->
   <project path="vendor/sqlite3" name="vendor_sqlite3" remote="pancake" revision="master" />
   <project path="packages/apps/GoogleCamera" name="packages_apps_GoogleCamera" remote="pancake" revision="7.3-urnyx-v2" />
-  <project path="external/motorola/faceunlock/" name="external_motorola_faceunlock" remote="pancake" revision="ten" />
 
   <!-- PixelExperience stuff -->
   <project path="hardware/xiaomi" remote="pe" name="hardware_xiaomi" revision="ten" />
