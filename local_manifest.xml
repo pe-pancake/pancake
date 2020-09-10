@@ -19,7 +19,7 @@
   <project path="packages/apps/PixelLiveWallpaper" remote="pixel-gitlab" name="packages_apps_PixelLiveWallpaper" revision="ten" />
 
   <!-- Proton toolchain -->
-  <project path="prebuilts/clang/host/linux-x86/clang-proton" name="kdrag0n/proton-clang" remote="github" />
+  <project path="prebuilts/clang/host/linux-x86/clang-proton" name="kdrag0n/proton-clang" revision="master" remote="github" />
 
   <!-- LineageOS hardware stuff stuff -->
   <project path="vendor/nxp/opensource/interfaces/nfc" remote="los" name="android_vendor_nxp_interfaces_opensource_nfc" revision="lineage-17.1" />
