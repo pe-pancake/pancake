@@ -5,7 +5,7 @@
   <remote name="los" fetch="https://github.com/LineageOS/" />
 
   <!-- PePe stuff -->
-  <project path="device/xiaomi/davinci" remote="pancake" name="android_device_xiaomi_davinci" revision="ten" />
+  <project path="device/xiaomi/davinci" remote="pancake" name="device_xiaomi_davinci" revision="ten" />
   <project path="kernel/xiaomi/davinci" remote="pancake" name="kernel_xiaomi_davinci" revision="ten" />
 
   <!-- PixelExperience Official davinci vendor -->
