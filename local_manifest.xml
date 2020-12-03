@@ -1,30 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
   <remote name="pancake" fetch="ssh://git@github.com/pe-pancake" />
-  <remote name="pe" fetch="https://github.com/PixelExperience-Devices/" />
   <remote name="los" fetch="https://github.com/LineageOS/" />
 
   <!-- PePe stuff -->
-  <project path="device/xiaomi/davinci" remote="pancake" name="device_xiaomi_davinci" revision="ten" />
-  <project path="kernel/xiaomi/davinci" remote="pancake" name="kernel_xiaomi_davinci" revision="ten" />
-  <project path="vendor/xiaomi/davinci" remote="pancake" name="vendor_xiaomi_davinci" revision="ten" />
+  <project
+    path="device/xiaomi/davinci"
+    remote="pancake"
+    name="device_xiaomi_davinci"
+    revision="eleven" />
+  <project
+    path="kernel/xiaomi/davinci"
+    remote="pancake"
+    name="kernel_xiaomi_davinci"
+    revision="eleven" />
 
-  <!-- etc -->
-  <project path="vendor/sqlite3" name="vendor_sqlite3" remote="pancake" revision="master" />
-  <project path="packages/apps/GoogleCamera" name="packages_apps_GoogleCamera" remote="pancake" revision="7.3-urnyx-v2" />
+  <!-- Vendor from PE Official -->
+  <project
+    path="vendor/xiaomi/davinci"
+    remote="pixel-devices-blobs"
+    name="vendor_xiaomi_davinci"
+    revision="eleven" />
 
-  <!-- PixelExperience stuff -->
-  <project path="hardware/xiaomi" remote="pe" name="hardware_xiaomi" revision="ten" />
-  <project path="packages/apps/PixelLiveWallpaper" remote="pixel-gitlab" name="packages_apps_PixelLiveWallpaper" revision="ten" />
+  <!-- Hardware parts from Lineage -->
+  <project
+    path="hardware/xiaomi"
+    name="LineageOS/android_hardware_xiaomi"
+    revision="lineage-18.0"
+    remote="github" />
 
   <!-- Proton toolchain -->
-  <project path="prebuilts/clang/host/linux-x86/clang-proton" name="kdrag0n/proton-clang" revision="master" remote="github" />
-
-  <!-- LineageOS hardware stuff stuff -->
-  <project path="vendor/nxp/opensource/interfaces/nfc" remote="los" name="android_vendor_nxp_interfaces_opensource_nfc" revision="lineage-17.1" />
-  <project path="vendor/nxp/opensource/commonsys/external/libnfc-nci" remote="los" name="android_vendor_nxp_opensource_external_libnfc-nci" revision="lineage-17.1" />
-  <project path="vendor/nxp/opensource/commonsys/frameworks" remote="los" name="android_vendor_nxp_opensource_frameworks" revision="lineage-17.1" />
-  <project path="vendor/nxp/opensource/commonsys/packages/apps/Nfc" remote="los" name="android_vendor_nxp_opensource_packages_apps_Nfc" revision="lineage-17.1" />
-  <project path="vendor/nxp/opensource/sn100x/halimpl" remote="los" name="android_vendor_nxp_opensource_halimpl" revision="lineage-17.1-sn100x" />
-  <project path="vendor/nxp/opensource/sn100x/hidlimpl" remote="los" name="android_vendor_nxp_opensource_hidlimpl" revision="lineage-17.1-sn100x" />
+  <project
+    path="prebuilts/clang/host/linux-x86/clang-proton"
+    name="kdrag0n/proton-clang"
+    revision="master"
+    remote="github" />
 </manifest>
