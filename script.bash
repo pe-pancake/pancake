@@ -5,6 +5,8 @@ export LC_ALL=C
 source "$ppe_scripts_path/helpers/config.bash"
 # shellcheck source=helpers/patch.bash
 source "$ppe_scripts_path/helpers/patch.bash"
+# shellcheck source=helpers/kernel.bash
+source "$ppe_scripts_path/helpers/kernel.bash"
 
 cd "$ppe_project_path" || return
 
