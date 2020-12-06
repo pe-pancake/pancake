@@ -23,10 +23,13 @@ build_rom () {
 
 build_kernel () {
   mka bootimage -j"$ppe_threads"
+  echo "$result_path"
+}
+
+copy_kernel () {
   timestamp="$(date +%s)"
   result_path="$ppe_builds_path/boot/boot-$timestamp.img"
   mv "$ppe_out_path/boot.img" "$result_path"
-  echo "$result_path"
 }
 
 configure () {
@@ -58,7 +61,6 @@ init_build () {
   # shellcheck disable=SC1091
   source build/envsetup.sh
   lunch "aosp_$ppe_device_name-userdebug"
-  mka installclean -j"$ppe_threads"
 }
 
 case "$1" in
@@ -68,11 +70,19 @@ case "$1" in
     ;;
   build-kernel|bk)
     init_build
+    mka installclean -j"$ppe_threads"
     build_kernel
+    copy_kernel
     print_success "Kernel successfully builded"
+    ;;
+  check-kernel|ck)
+    init_build
+    build_kernel
+    print_success "Kernel is buildable"
     ;;
   build|b)
     init_build
+    mka installclean -j"$ppe_threads"
     build_rom
     print_success "ROM successfully builded"
     ;;
