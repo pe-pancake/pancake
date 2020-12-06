@@ -35,4 +35,11 @@
     name="kdrag0n/proton-clang"
     revision="master"
     remote="github" />
+
+  <!-- sqlite3 for GPay hack -->
+  <project
+    path="vendor/sqlite3"
+    name="pe-pancake/vendor_sqlite3"
+    revision="master"
+    remote="github" />
 </manifest>
